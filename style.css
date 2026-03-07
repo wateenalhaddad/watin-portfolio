@@ -1,0 +1,433 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a; /* fallback */
+}
+
+/* ===== BACKGROUND VIDEO ===== */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffd0fc; /* changed */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd0fc; /* changed */
+    transition: width 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #ffd0fc; /* changed */
+}
+
+nav a.active {
+    color: #ffd0fc; /* changed */
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 100%;
+}
+
+.page-content {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ffd0fc; /* changed */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ===== HOME PAGE ===== */
+.welcomee {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.welcomee h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.welcomee .name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffd0fc; /* changed */
+    margin: 0.5rem 0;
+}
+
+.welcomee p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    background: #ffd0fc; /* changed */
+    color: #1a1a1a; /* dark text for contrast */
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background: #e6b8e6; /* slightly darker pink */
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-content {
+    overflow: auto;
+}
+
+.about-photo {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid #ffd0fc; /* changed */
+    object-fit: cover;
+}
+
+.about-content h2 {
+    color: #ffd0fc; /* changed */
+    margin: 1.5rem 0 0.5rem;
+}
+
+.about-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+}
+
+/* ===== SKILLS PAGE (updated with Devicon) ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: rgba(255, 208, 252, 0.2); /* pink tint */
+}
+
+.skill-card i {
+    font-size: 4rem; /* for Devicon icons */
+}
+
+.skill-card p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ===== PROJECTS PAGE ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: rgba(255, 208, 252, 0.15); /* pink tint */
+}
+
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 2px solid #ffd0fc; /* changed */
+}
+
+.project-card h3 {
+    color: #ffd0fc; /* changed */
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.project-tech span {
+    background: rgba(255, 208, 252, 0.3); /* pink tint */
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== CONTACT PAGE ===== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.contact-info, .contact-form {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.contact-info h2, .contact-form h2 {
+    color: #ffd0fc; /* changed */
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.contact-details p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    word-break: break-word;
+}
+
+.contact-details a {
+    color: #ffd0fc; /* changed */
+    text-decoration: none;
+    border-bottom: 1px dashed #ffd0fc; /* changed */
+}
+
+.contact-details a:hover {
+    color: #e6b8e6; /* darker pink */
+    border-bottom-style: solid;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border 0.3s, background 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffd0fc; /* changed */
+    background: rgba(255,255,255,0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    nav ul {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .welcomee .name {
+        font-size: 2.5rem;
+    }
+    
+    .welcomee h2 {
+        font-size: 1.5rem;
+    }
+    
+    .about-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 1.5rem;
+        width: 150px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-content {
+        padding: 1rem;
+    }
+}
